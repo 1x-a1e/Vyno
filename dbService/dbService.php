@@ -10,6 +10,7 @@ class dbService {
 
     function __construct() {
         try {
+            # Create a new PDO connection
             $this->conn = new PDO("mysql:host={$this->host};dbname={$this->dbName};port={$this->port}", $this->user, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -17,8 +18,14 @@ class dbService {
         }
     }
 
-    function loginUser($username, $password) {
-        
+    function loginUser($username, $password): bool {
+        try {
+
+        }
+        catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        return false;
     }
 }
 ?>
