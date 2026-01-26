@@ -34,6 +34,13 @@
         </div>
         <?php endif; ?>
 
+
+        <?php if (isset($_GET['success'])): ?>
+        <div class="success" role="alert">
+          <?= htmlspecialchars($_GET['success']) ?>
+        </div>
+        <?php endif; ?>
+
         <form class="form" action="/api/login" method="post">
           <div class="field">
             <label for="username">Username</label>

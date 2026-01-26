@@ -58,9 +58,7 @@ class dbService {
                 $query->bindParam(':username', $username);
                 $query->execute();
 
-                if ($query->rowCount() > 0) {
-                    return true;
-                }
+                print_r($query->rowCount());
             }
             catch (PDOException $e) {
                 print_r("Error: " . $e->getMessage());
@@ -68,5 +66,9 @@ class dbService {
         }
         return false;
     }
-}
+};
+
+$test = new dbService();
+$test->registerUser("Mario", "Rossi", "mariorossi", "test@example.com", "password");
+
 ?>

@@ -99,12 +99,31 @@ h1{
 }
 .error.is-hidden{ display:none; }
 
+/* Successo */
+.success{
+  background: rgba(74, 222, 128, .12);
+  border: 1px solid rgba(74, 222, 128, .45);
+  color: #86efac;
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  text-align: center;
+  animation: pop .25s ease-in-out;
+}
+.success.is-hidden{ display:none; }
+
 @keyframes shake{
   0%{ transform: translateX(0); }
   25%{ transform: translateX(-3px); }
   50%{ transform: translateX(3px); }
   75%{ transform: translateX(-2px); }
   100%{ transform: translateX(0); }
+}
+
+@keyframes pop {
+  0%{ transform: scale(0.95); opacity: 0; }
+  100%{ transform: scale(1); opacity: 1; }
 }
 
 .form{ display:grid; gap: 14px; }
