@@ -46,5 +46,17 @@ class dbService {
         }
         return false;
     }
+
+    function registerUser($nome, $cognome, $username, $email, $password, $profileImagePath): bool {
+        if (!empty($nome) && !empty($cognome) && !empty($username) && !empty($email) && !empty($password)) {
+            try {
+                $query = $this->conn->prepare("");
+            }
+            catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+        return false;
+    }
 }
 ?>

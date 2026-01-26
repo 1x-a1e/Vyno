@@ -9,20 +9,28 @@ if ($path !== "/" && file_exists($file) && !is_dir($file)) {
 $page = $path;
 
 switch ($page) {
-    case "/home":
+    case "/":
         require __DIR__ . '/pages/home/home.php';
         break;
 
     case "/login":
-        require __DIR__ . '/pages/login/index.html';
+        require __DIR__ . '/pages/login/login.php';
         break;
 
     case "/api/login":
         require __DIR__ . '/api/login/login.php';
         break;
 
+    case "/register":
+        require __DIR__ . '/pages/register/register.html';
+        break;
+
+    case "/api/register":
+        require __DIR__ . '/api/register/register.php';
+        break;
+
     default:
-        require __DIR__ . '/pages/404/404.php';
+        require __DIR__ . '/pages/404/404.html';
         break;
 }
 
