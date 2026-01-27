@@ -14,6 +14,6 @@ Things to do later:
 - User Stories
 - Chat
 
-Yes... I still have a lot to do, and I have an exam in January... I think I'll spend the rest of my days writing code.
+Yes... I still have a lot to do, and I have an exam in June... I think I'll spend the rest of my days writing code.
 
 I love this! (Even though I'm not good at it)
