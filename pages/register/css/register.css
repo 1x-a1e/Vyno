@@ -118,6 +118,28 @@ input{
 
 input::placeholder{ color:rgba(255,255,255,.55); }
 
+/* Errore */
+.error{
+  background: rgba(255,93,108,.12);
+  border: 1px solid rgba(255,93,108,.45);
+  color: #ff8a96;
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  text-align: center;
+  animation: shake .25s ease-in-out;
+}
+.error.is-hidden{ display:none; }
+
+@keyframes shake{
+  0%{ transform: translateX(0); }
+  25%{ transform: translateX(-3px); }
+  50%{ transform: translateX(3px); }
+  75%{ transform: translateX(-2px); }
+  100%{ transform: translateX(0); }
+}
+
 .upload{
   display:flex;
   align-items:center;

@@ -28,6 +28,12 @@
         <h1 id="title">Registrazione</h1>
         <p class="sub">Crea la tua identità nello spazio.</p>
 
+        <?php if (isset($_GET['error'])): ?>
+        <div class="error" role="alert">
+          <?= htmlspecialchars($_GET['error']) ?>
+        </div>
+        <?php endif; ?>
+
         <form class="form" action="/api/register" method="post" enctype="multipart/form-data">
           <!-- Nome / Cognome -->
           <div class="grid">
@@ -75,16 +81,17 @@
             </div>
           </div>
 
-          <!-- Username (opzionale) -->
+          <!-- Username -->
           <div class="field">
-            <label for="username">Username (opzionale)</label>
+            <label for="username">Username</label>
             <div class="input">
               <input
                 id="username"
-                name="usernameProfile"
+                name="username"
                 type="text"
                 maxlength="16"
-                placeholder="Generato automaticamente se vuoto"
+                placeholder="Username"
+                required
               />
             </div>
           </div>

@@ -22,7 +22,7 @@ switch ($page) {
         break;
 
     case "/register":
-        require __DIR__ . '/pages/register/register.html';
+        require __DIR__ . '/pages/register/register.php';
         break;
 
     case "/api/register":

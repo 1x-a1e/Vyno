@@ -2,7 +2,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     # connessione con la classe per la gestione del database
-    require __DIR__ . '/../../dbService/dbService.php';
+    require __DIR__ . '/../../service/dbService.php';
 
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -22,18 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user'] = $user;
 
             http_response_code(200);
-            header("Location: /home");
+            header("Location: /");
             exit();
         }
         else {
             http_response_code(401);
-            header("Location: /login?error=invalid credentials");
+            header("Location: /login?error=Invalid credentials");
             exit();
         }
 
     }
     catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
+        print($e->getMessage());
+        http_response_code(500);
+        header("Location: /login?error=Server error");
+        exit();
     }
 }
 
