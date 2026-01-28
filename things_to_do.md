@@ -9,7 +9,6 @@ Essential things to do:
 - Profile user
 - Database (Posts ecc...)
 
-
 Things to do later:
 
 - Reels
