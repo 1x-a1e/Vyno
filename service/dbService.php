@@ -29,16 +29,19 @@ class dbService {
 
         try {
             # query per la selezione dell'utente
-            $query = $this->conn->prepare("SELECT usernameProfile, passwd FROM Users WHERE (usernameProfile = :username) AND (passwd = :password);");
+            $query = $this->conn->prepare("SELECT usernameProfile, passwd FROM Users WHERE usernameProfile = :username;");
             $ex = $query->execute(
                 [
-                    ':username' => $username,
-                    ':password' => $password
+                    ':username' => $username
                 ]
             );
 
             if ($ex) {
-                return true;
+                $r = $query->fetch(PDO::FETCH_ASSOC);
+                if (password_verify($password, $r["passwd"])) {
+                    return true;
+                }
+
             }
         }
         catch (PDOException $e) {
@@ -46,6 +49,31 @@ class dbService {
         }
         return false;
     }
+    /*
+    private function getIdFromUsername($username): int {
+        if (empty($username)) {
+            return -1;
+        }
+
+        try {
+            $query = $this->conn->prepare("SELECT userId FROM Users WHERE usernameProfile = :username LIMIT 1;");
+            $query->execute(
+                [
+                    ":username" => $username
+                ]
+            );
+            $r = $query->fetchColumn();
+
+            if ($r !== false) {
+                return intval($r);
+            }
+        }
+        catch (PDOException $e) {
+            print_r("Error: " . $e->getMessage());
+        }
+        return -1;
+    }
+    */
 
     # TODO: completare la funzione di registrazione (img) e hashare la password
     # gestire anche l'import dell'immagine del profilo

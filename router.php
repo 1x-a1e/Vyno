@@ -10,27 +10,27 @@ $page = $path;
 
 switch ($page) {
     case "/":
-        require __DIR__ . '/pages/home/home.php';
+        require __DIR__ . "/pages/home/home.php";
         break;
 
     case "/login":
-        require __DIR__ . '/pages/login/login.php';
+        require __DIR__ . "/pages/login/login.php";
         break;
 
     case "/api/login":
-        require __DIR__ . '/api/login/login.php';
+        require __DIR__ . "/api/login/login.php";
         break;
 
     case "/register":
-        require __DIR__ . '/pages/register/register.php';
+        require __DIR__ . "/pages/register/register.php";
         break;
 
     case "/api/register":
-        require __DIR__ . '/api/register/register.php';
+        require __DIR__ . "/api/register/register.php";
         break;
 
     default:
-        require __DIR__ . '/pages/404/404.html';
+        require __DIR__ . "/pages/404/404.html";
         break;
 }
 

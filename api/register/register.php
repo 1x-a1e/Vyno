@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     $dbService = new dbService();
-
+    
     if ($nome === '' || $cognome === '' || $username === '' || $email === '' || $password === '') {
         http_response_code(400);
         header("Location: /register?error=All fields are required");
@@ -32,6 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: /register?error=Username already exists");
                 exit();
             }
+
+            $password = password_hash($password, PASSWORD_DEFAULT);
 
             # registrazione utente
             if ($dbService->registerUser($nome, $cognome, $username, $email, $password)) {

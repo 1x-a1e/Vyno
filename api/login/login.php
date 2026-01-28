@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require __DIR__ . '/../../service/dbService.php';
 
     $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $password = $_POST['password']?? '';
 
     try {
         $dbService = new dbService();
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             # inizializzazione sessione
             session_start();
             # salvataggio dei dati dell'utente nella sessione
-            $_SESSION['user'] = $user;
+            $_SESSION['username'] = $user;
 
             http_response_code(200);
             header("Location: /");
@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
     catch (Exception $e) {
-        print($e->getMessage());
         http_response_code(500);
         header("Location: /login?error=Server error");
         exit();
